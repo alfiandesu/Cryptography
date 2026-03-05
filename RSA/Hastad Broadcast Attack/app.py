@@ -2,29 +2,22 @@ from Crypto.Util.number import long_to_bytes
 from gmpy2 import iroot
 from sympy.ntheory.modular import crt
 
-e = 
-c1 = 
-n1 = 
-c2 = 
-n2 = 
-c3 = 
-n3 = 
+e =   # changeable
+c1 =  # changeable
+n1 =  # changeable
+c2 =  # changeable
+n2 =  # changeable
+c3 =  # changeable
+n3 =  # changeable
 
-
-def third_root(n):
-    m, valid = iroot(n, e)
-    if valid:
-        print("Plaintext :", long_to_bytes(m))
-    else:
-        print("Unable to find the third root of :", n)
-
-C = [c1, c2, c3]
+C = [c1, c2, c3]  # changeable 
 N = [n1, n2, n3]
 
-for c in C:
-    third_root(c)
+x, _ = crt(N, C)
 
-x, modulus_total = crt(N, C) 
+m, exact = iroot(int(x), e)
 
-print("Found CRT")
-third_root(int(x))
+if exact:
+    print("Plaintext:", long_to_bytes(m))
+else:
+    print("Root not exact")
