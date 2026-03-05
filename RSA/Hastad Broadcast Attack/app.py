@@ -2,7 +2,7 @@ from Crypto.Util.number import long_to_bytes
 from gmpy2 import iroot
 from sympy.ntheory.modular import crt
 
-e = 3
+e = 
 c1 = 
 n1 = 
 c2 = 
