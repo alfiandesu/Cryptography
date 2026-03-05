@@ -1,7 +1,7 @@
 from pwn import xor
 
-ct = bytes.fromhex('') # changeable depends on the chall
-partial_key = xor(ct[:<plaintext length>], b"<plaintext>") # changeable depends on the chall
+ct = bytes.fromhex('...')
+partial_key = xor(ct[:<plaintext length>], b"<plaintext>")
 
 for i in range(256):
     key = partial_key + bytes([i])
